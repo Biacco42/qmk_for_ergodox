@@ -7,7 +7,7 @@ build:
         name: build default keymap.
         cwd: $WERCKER_SOURCE_DIR
         code: |
-          make keyboard=ergodox keymap=$TARGET_KEYMAP
+          make keyboard=ergodox keymap=$TARGET_KEYMAP SLEEP_LED_ENABLE=no
     - script:
         name: move built firmware to output dir.
         cwd: $WERCKER_SOURCE_DIR/.build
