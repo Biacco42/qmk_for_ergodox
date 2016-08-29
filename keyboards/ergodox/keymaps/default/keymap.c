@@ -5,7 +5,7 @@
 
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
-#define META 2 // media keys
+#define META 2 // meta keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Meta keys
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Reset  |      |      |      |      |      |      |           |      |      |      |      |      |      |  Pwr   |
+ * | Reset  |      |      |      |      |      |      |           |      |      |      |      |      |      | Sleep  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |      |      |  Up  |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_NO,
                                   KC_NO,   KC_NO,   KC_NO,
     // right hand
-       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_PWR,
+       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_SLEP,
        KC_TRNS,  KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,   KC_NO,
                  KC_NO,   KC_LEFT, KC_DOWN, KC_RGHT,   KC_NO,   KC_NO,
        KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
