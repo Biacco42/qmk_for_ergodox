@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Meta keys
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Reset  |      |      |      |      |      |      |           |      |      |      |      |      |      | Sleep  |
+ * | Reset  |      |      |      |      |      |      |           |      |      |      |      |      |      | Power  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_NO,
                                   KC_NO,   KC_NO,   KC_NO,
     // right hand
-       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_SLEP,
+       KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_POWER,
        KC_TRNS,  KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,   KC_NO,
                  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   KC_NO,
        KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
