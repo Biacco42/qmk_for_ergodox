@@ -11,9 +11,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   1    |   2  |   3  |   4  |   5  |   6  |L1 TGL|           |L2 TGL|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |   1    |   2  |   3  |   4  |   5  |   6  |L2 TGL|           |L1 TGL|   7  |   8  |   9  |   0  |   -  |   ^    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |  Del   |   Q  |   W  |   E  |   R  |   T  |  L1  |           |  L2  |   Y  |   U  |   I  |   O  |   P  |   @    |
+ * |  Del   |   Q  |   W  |   E  |   R  |   T  |  L2  |           |  L1  |   Y  |   U  |   I  |   O  |   P  |   @    |
  * |--------+------+------+------+------+------| TRG  |           |  TRG |------+------+------+------+------+--------|
  * |  Esc   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   :    |
  * |--------+------+------+------+------+------| Alt  |           | Meh  |------+------+------+------+------+--------|
@@ -33,8 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(SYMB),
-        KC_ESC,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   LT(SYMB, KC_NO),
+        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(META),
+        KC_ESC,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   LT(META, KC_NO),
         KC_BSPC,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LALT,
         KC_LCTL,        KC_LGUI,      KC_LALT,KC_LEFT,KC_RGHT,
@@ -42,8 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                              KC_HOME,
                                                KC_SPC,KC_TAB,KC_MHEN,
         // right hand
-             TG(META),    KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,          KC_EQL,
-             LT(META, KC_NO),KC_Y,KC_U,   KC_I,   KC_O,   KC_P,             KC_LBRC,
+             TG(SYMB),    KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,          KC_EQL,
+             LT(SYMB, KC_NO),KC_Y,KC_U,   KC_I,   KC_O,   KC_P,             KC_LBRC,
                           KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,          KC_QUOT,
              MEH_T(KC_NO),KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,          SFT_T(KC_RO),
                                   KC_RBRC,KC_BSLS,S(KC_RBRC),S(KC_BSLS),    KC_JYEN,
