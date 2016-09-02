@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | ~L2  | ~L1  |       | ~L2  |  ~L1   |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | App  |       | Del  |        |      |
- *                                 | Space| Tab  |------|       |------| Back   |Enter |
+ *                                 | Space|Shift |------|       |------| Back   |Enter |
  *                                 |      |      | Muhen|       | Henk | Space  |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,        KC_LGUI,      KC_LALT,KC_MHEN,KC_HENK,
                                               MO(META),       MO(SYMB),
                                                               KC_APP,
-                                              KC_SPC, KC_TAB, KC_MHEN,
+                                              KC_SPC, KC_LSFT,KC_MHEN,
         // right hand
              TG(SYMB),    KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,          KC_EQL,
              KC_BSLS,     KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_LBRC,
