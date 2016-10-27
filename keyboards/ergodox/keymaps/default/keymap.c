@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
         KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(NORM),
-        TO(NORM),       KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_RBRC,
+        TO(NORM, 1),    KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_RBRC,
         KC_LALT,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   S(KC_8),
         KC_LCTL,        KC_LGUI,      KC_APP ,KC_MHEN,KC_HENK,
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
        KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_PSCR, KC_NO,   KC_SLEP,
-       KC_TRNS,  KC_NO,   KC_NO,   TO(BASE),KC_NO,   KC_NO,   KC_NO,
+       KC_TRNS,  KC_NO,   KC_NO,   TO(BASE, 1),KC_NO,KC_NO,   KC_NO,
                  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   KC_NO,
        KC_TRNS,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
