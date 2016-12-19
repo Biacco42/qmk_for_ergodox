@@ -1,5 +1,5 @@
 # Quantum Mechanical Keyboard Firmware
-[![Build status](https://app.wercker.com/status/3e97e062ebe3fba441d95cd4cf0c55a9/m "wercker status")](https://app.wercker.com/project/bykey/3e97e062ebe3fba441d95cd4cf0c55a9)
+[![wercker status](https://app.wercker.com/status/fd953cbdebd1fa8331b1ee2c64716fe2/m/master "wercker status")](https://app.wercker.com/project/byKey/fd953cbdebd1fa8331b1ee2c64716fe2)
 
 This is a keyboard firmware based on the [tmk_keyboard firmware](http://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR controllers, and more specifically, the [OLKB product line](http://olkb.com), the [ErgoDox EZ](http://www.ergodox-ez.com) keyboard, and the [Clueboard product line](http://clueboard.co/).
 
@@ -53,7 +53,7 @@ Here are the steps
 1. Install the Windows 10 subsystem for Linux, following [these instructions](http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/).
 2. If you have previously cloned the repository using the normal Git bash, you will need to clean up the line endings. If you have cloned it after 20th of August 2016, you are likely fine. To clean up the line endings do the following
    1. Make sure that you have no changes you haven't committed by running `git status`, if you do commit them first
-   2. From within the Git bash run �git rm --cached -r .`
+   2. From within the Git bash run ´git rm --cached -r .`
    3. Followed by `git reset --hard`
 3. Start the "Bash On Ubuntu On Windows" from the start menu
 4. With the bash open, navigate to your git checkout. The harddisk can be accessed from `/mnt` for example `/mnt/c` for the `c:\` drive.
@@ -805,7 +805,7 @@ To give an example, if you're using software-implemented Colemak, and want to ge
 
 ## Additional language support
 
-In `quantum/keymap_extras/`, you'll see various language files - these work the same way as the alternative layout ones do. Most are defined by their two letter country/language code followed by an underscore and a 4-letter abbreviation of its name. `FR_UGRV` which will result in a `ù` when using a software-implemented AZERTY layout. It's currently difficult to send such characters in just the firmware (but it's being worked on - see Unicode support).
+In `quantum/keymap_extras/`, you'll see various language files - these work the same way as the alternative layout ones do. Most are defined by their two letter country/language code followed by an underscore and a 4-letter abbreviation of its name. `FR_UGRV` which will result in a `Ã¹` when using a software-implemented AZERTY layout. It's currently difficult to send such characters in just the firmware (but it's being worked on - see Unicode support).
 
 ## Unicode support
 
@@ -958,8 +958,8 @@ This makes the key behave like a tab key if pressed and released immediately but
 
 In the default script of AutoHotkey you can define custom hotkeys.
 
-    <^<!<#a::Send, ä
-    <^<!<#<+a::Send, Ä
+    <^<!<#a::Send, Ã¤
+    <^<!<#<+a::Send, Ã
 
 The hotkeys above are for the combination CtrlAltGui and CtrlAltGuiShift plus the letter a.
 AutoHotkey inserts the Text right of `Send, ` when this combination is pressed.
