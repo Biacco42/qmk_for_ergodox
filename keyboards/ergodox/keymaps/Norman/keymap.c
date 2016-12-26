@@ -5,12 +5,13 @@
 
 #define BASE 0 // default layer
 #define META 1 // meta keys
+#define GAME 2 // game layer
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   1    |   2  |   3  |   4  |   5  |   6  |=>META|           |=>META|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>GAME|           |=>META|   7  |   8  |   9  |   0  |   -  |   ^    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |  Tab   |   Q  |   W  |   D  |   F  |   K  |   [  |           |  ]   |   J  |   U  |   R  |   L  |   ;  |   @    |
  * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
@@ -32,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(META),
+        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(GAME),
         KC_TAB,         KC_Q,         KC_W,   KC_D,   KC_F,   KC_K,   KC_RBRC,
         KC_LALT,        KC_A,         KC_S,   KC_E,   KC_T,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   S(KC_8),
@@ -71,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 | Ctrl | Shift| Esc  |       | Del  |        |~META |
  *                                 `--------------------'       `----------------------'
  */
-// Normal mode
+// Meta keys
 [META] = KEYMAP(
        RESET,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,
        KC_1,      KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_TRNS,
@@ -90,6 +91,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,  KC_TRNS,
        KC_TRNS,
        KC_TRNS,  KC_TRNS, KC_TRNS
+),
+
+/* Keymap 2: game layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>GAME|           |=>META|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |  Tab   |   Q  |   W  |   E  |   R  |   T  |   [  |           |  ]   |   Y  |   U  |   I  |   O  |   P  |   @    |
+ * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
+ * |  Alt   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   :    |
+ * |--------+------+------+------+------+------|   (  |           |  )   |------+------+------+------+------+--------|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | \ / S  |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | LCTL | LGUI |  App | Muhen| Henk |                                       | Left | Down |  Up  |Right |  \   |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,---------------.
+ *                                        |~META |~META |       |~META | ~META  |
+ *                                 ,------|------|------|       |------+--------+------.
+ *                                 |      |      | Esc  |       | Del  | Back   |      |
+ *                                 |Space | Tab  |------|       |------| Space  |Enter |
+ *                                 |      |      | Esc  |       | Del  |        |      |
+ *                                 `--------------------'       `----------------------'
+ */
+// If it accepts an argument (i.e, is a function), it doesn't need KC_.
+// Otherwise, it needs KC_*
+[BASE] = KEYMAP(  // layer 0 : default
+        // left hand
+        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   KC_TRNS,
+        KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_RBRC,
+        KC_LALT,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
+        KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   S(KC_8),
+        KC_LCTL,        KC_LGUI,      KC_APP ,KC_MHEN,KC_HENK,
+                                              MO(META),       MO(META),
+                                                              KC_ESC,
+                                                KC_SPC,KC_TAB,KC_ESC,
+        // right hand
+             KC_TRNS,     KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,          KC_EQL,
+             KC_BSLS,     KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,             KC_LBRC,
+                          KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,          KC_QUOT,
+             S(KC_9),     KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,          SFT_T(KC_RO),
+                                  KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,          KC_JYEN,
+             MO(META),            MO(META),
+             KC_DELT,
+             KC_DELT,     KC_BSPC,KC_ENT
 ),
 };
 
