@@ -1,7 +1,6 @@
 # Getting started
 
 There are two main ways you could customize the ErgoDox (EZ and Infinity)
-__for commit.__
 
 ## The Easy Way: Use an existing firmware file and just flash it (ErgoDox EZ only)
 
