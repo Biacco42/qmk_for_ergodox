@@ -1,7 +1,7 @@
 #ifndef KEYBOARDS_ERGODOX_CONFIG_H_
 #define KEYBOARDS_ERGODOX_CONFIG_H_
 
-#define MOUSEKEY_DELAY          150
+#define MOUSEKEY_DELAY          200
 #define MOUSEKEY_INTERVAL       20
 #define MOUSEKEY_MAX_SPEED      3
 #define MOUSEKEY_TIME_TO_MAX    10
@@ -11,7 +11,7 @@
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
-#define TAPPING_TERM    100
+#define TAPPING_TERM    150
 #define IGNORE_MOD_TAP_INTERRUPT // this makes it possible to do rolling combos (zx) with keys that convert to other keys on hold (z becomes ctrl when you hold it, and when this option isn't enabled, z rapidly followed by x actually sends Ctrl-x. That's bad.)
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
