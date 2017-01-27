@@ -4,13 +4,14 @@
 #include "version.h"
 
 #define BASE 0 // default layer
-#define META 1 // meta keys
+#defien NORM 1 // Norman layer
+#define META 2 // meta keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   1    |   2  |   3  |   4  |   5  |   6  |=>META|           |=>META|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>NORM|           |=>META|   7  |   8  |   9  |   0  |   -  |   ^    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |  Tab   |   Q  |   W  |   E  |   R  |   T  |   [  |           |  ]   |   Y  |   U  |   I  |   O  |   P  |   @    |
  * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
@@ -32,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(META),
+        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(TORM),
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_RBRC,
         KC_LALT,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   S(KC_8),
@@ -50,7 +51,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_DELT,
              KC_DELT,     KC_BSPC,LT(META, KC_ENT)
 ),
-/* Keymap 1: Meta keys
+
+/* Keymap 1: Norman layer
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>NORM|           |=>META|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |  Tab   |   Q  |   W  |   D  |   F  |   K  |   [  |           |  ]   |   J  |   U  |   R  |   L  |   ;  |   @    |
+ * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
+ * |  Alt   |   A  |   S  |   E  |   T  |   G  |------|           |------|   Y  |   N  |   I  |   O  |   H  |   :    |
+ * |--------+------+------+------+------+------|   (  |           |  )   |------+------+------+------+------+--------|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   P  |   M  |   ,  |   .  |   /  | \ / S  |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | LCTL | LGUI |  App | Muhen| Henk |                                       | Left | Down |  Up  |Right |  \   |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,---------------.
+ *                                        |~META |~META |       |~META | ~META  |
+ *                                 ,------|------|------|       |------+--------+------.
+ *                                 |      |      | Esc  |       | Del  | Back   |      |
+ *                                 |Space/| Tab/ |------|       |------| Space  |Enter/|
+ *                                 | Ctrl | Shift| Esc  |       | Del  |        |~META |
+ *                                 `--------------------'       `----------------------'
+ */
+// If it accepts an argument (i.e, is a function), it doesn't need KC_.
+// Otherwise, it needs KC_*
+[NORM] = KEYMAP(  // layer 1 : Norman
+        // left hand
+        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   KC_TRNS,
+        KC_TAB,         KC_Q,         KC_W,   KC_D,   KC_F,   KC_K,   KC_RBRC,
+        KC_LALT,        KC_A,         KC_S,   KC_E,   KC_T,   KC_G,
+        KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   S(KC_8),
+        KC_LCTL,        KC_LGUI,      KC_APP ,KC_MHEN,KC_HENK,
+                                              MO(META),       MO(META),
+                                                              KC_ESC,
+                                  CTL_T(KC_SPC),SFT_T(KC_TAB),KC_ESC,
+        // right hand
+             KC_TRNS,     KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,          KC_EQL,
+             KC_BSLS,     KC_J,   KC_U,   KC_R,   KC_L,   KC_SCLN,          KC_LBRC,
+                          KC_Y,   KC_N,   KC_I,   KC_O,   KC_H,             KC_QUOT,
+             S(KC_9),     KC_P,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,          SFT_T(KC_RO),
+                                  KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,          KC_JYEN,
+             MO(META),            MO(META),
+             KC_DELT,
+             KC_DELT,     KC_BSPC,LT(META, KC_ENT)
+),
+
+/* Keymap 2: Meta keys
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | Reset  |      |      |      |      |      |      |           |      |      |      |      |PrtSc |      | Sleep  |
@@ -132,6 +178,8 @@ void matrix_scan_user(void) {
         case 2:
             ergodox_right_led_2_on();
             break;
+        case 3:
+            ergodox_right_led_3_on();
         default:
             // none
             break;
