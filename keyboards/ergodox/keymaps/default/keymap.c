@@ -4,7 +4,7 @@
 #include "version.h"
 
 #define BASE 0 // default layer
-#defien NORM 1 // Norman layer
+#define NORM 1 // Norman layer
 #define META 2 // meta keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
