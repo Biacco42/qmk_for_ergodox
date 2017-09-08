@@ -4,7 +4,7 @@
 #include "version.h"
 
 #define BASE 0 // default layer
-#define NORM 1 // Norman layer
+#define SYMB 1 // Symbol layer
 #define GAME 2 // Game layer
 #define META 3 // meta keys
 
@@ -12,7 +12,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   1    |   2  |   3  |   4  |   5  |   6  |=>NORM|           |=>GAME|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>SYMB|           |=>GAME|   7  |   8  |   9  |   0  |   -  |   ^    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |  Tab   |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   @    |
  * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
@@ -34,11 +34,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(NORM),
+        KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   TG(SYMB),
         KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   S(KC_RBRC),
         KC_LALT,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   S(KC_8),
-        KC_LCTL,        KC_LGUI,      KC_APP ,KC_ESC,KC_ESC,
+        KC_LCTL,        KC_LGUI,      KC_APP ,KC_ESC,LT(SYMB, KC_ESC),
                                               KC_RBRC,       MO(META),
                                                               KC_ESC,
                                   CTL_T(KC_SPC),SFT_T(KC_TAB),KC_MHEN,
@@ -53,18 +53,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_HENK,     KC_BSPC,LT(META, KC_ENT)
 ),
 
-/* Keymap 1: Norman layer
+/* Keymap 1: Symbol layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   1    |   2  |   3  |   4  |   5  |   6  |=>NORM|           |=>GAME|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>SYMB|           |=>GAME|   7  |   8  |   9  |   0  |   -  |   ^    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |  Tab   |   Q  |   W  |   D  |   F  |   K  |      |           |      |   J  |   U  |   R  |   L  |   ;  |   @    |
+ * |  Tab   |      |      |      |      |      |      |           |      |   {  |   }  |   #  |   @  |  |   |   @    |
  * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
- * |  Alt   |   A  |   S  |   E  |   T  |   G  |------|           |------|   Y  |   N  |   I  |   O  |   H  |   :    |
+ * |  Alt   |      |   ~  |   ?  |   !  |      |------|           |------|   (  |   )  |   "  |   '  |  &   |   :    |
  * |--------+------+------+------+------+------|   (  |           |  )   |------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   P  |   M  |   ,  |   .  |   /  | \ / S  |
+ * | LShift |      |      |      |      |      |      |           |      |   [  |   ]  |   <  |   >  |   \  | _ / S  |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | LCTL | LGUI |  App | Esc  | Esc  |                                       | Del  |  Del |  Up  |Right |  \   |
+ *   | LCTL | LGUI |  App | Esc  | Esc  |                                       | Del  |  Del |  Up  |Right |  ¥   |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
  *                                        |  [   |~META |       | ~META|    ]   |
@@ -76,21 +76,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
-[NORM] = KEYMAP(  // layer 1 : Norman
+[SYMB] = KEYMAP(  // layer 1 : Symbol
         // left hand
         KC_1,           KC_2,         KC_3,   KC_4,   KC_5,   KC_6,   KC_TRNS,
-        KC_TRNS,        KC_Q,         KC_W,   KC_D,   KC_F,   KC_K,   KC_TRNS,
-        KC_TRNS,        KC_A,         KC_S,   KC_E,   KC_T,   KC_G,
-        KC_TRNS,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_TRNS,
-        KC_TRNS,        KC_TRNS,      KC_TRNS ,KC_TRNS,KC_TRNS,
+        KC_TRNS,        KC_NO,        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_TRNS,
+        KC_TRNS,        KC_NO,        S(KC_LBRC),S(KC_SLSH),S(KC_1),KC_NO,
+        KC_TRNS,        KC_NO,        KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_TRNS,
+        KC_TRNS,        KC_TRNS,      KC_TRNS ,KC_TRNS, KC_TRNS,
                                                KC_TRNS,       MO(META),
                                                               KC_TRNS,
                                  KC_TRNS,      KC_TRNS,       KC_TRNS,
         // right hand
-             KC_TRNS,     KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,          KC_EQL,
-             KC_TRNS,     KC_J,   KC_U,   KC_R,   KC_L,   KC_SCLN,          KC_LBRC,
-                          KC_Y,   KC_N,   KC_I,   KC_O,   KC_H,             KC_QUOT,
-             KC_TRNS,     KC_P,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,          SFT_T(KC_RO),
+             KC_TRNS,     KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,             KC_EQL,
+             KC_TRNS,     S(KC_RBRC),S(KC_BSLS),S(KC_3),KC_LBRC, S(KC_JYEN),   KC_LBRC,
+                          S(KC_8),S(KC_9), S(KC_2), S(KC_7), S(KC_6),          KC_QUOT,
+             KC_TRNS,     KC_RBRC, KC_BSLS, S(KC_COMM),S(KC_DOT), A(KC_JYEN),  SFT_T(KC_RO),
                                   KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,          KC_JYEN,
              MO(META),            KC_TRNS,
              KC_TRNS,
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Game layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   1    |   2  |   3  |   4  |   5  |   6  |=>NORM|           |=>GAME|   7  |   8  |   9  |   0  |   -  |   ^    |
+ * |   1    |   2  |   3  |   4  |   5  |   6  |=>SYMB|           |=>GAME|   7  |   8  |   9  |   0  |   -  |   ^    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |  Tab   |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   @    |
  * |--------+------+------+------+------+------|   {  |           |  }   |------+------+------+------+------+--------|
