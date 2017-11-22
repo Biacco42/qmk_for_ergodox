@@ -314,6 +314,7 @@ enum quantum_keycodes {
 // M-od, T-ap - 256 keycode max
 #define MT(mod, kc) (kc | QK_MOD_TAP | ((mod & 0xF) << 8))
 #define CTL_T(kc) MT(MOD_LCTL, kc)
+#define RCTL_T(kc) MT(MOD_RCTL, kc)
 #define SFT_T(kc) MT(MOD_LSFT, kc)
 #define ALT_T(kc) MT(MOD_LALT, kc)
 #define GUI_T(kc) MT(MOD_LGUI, kc)
